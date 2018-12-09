@@ -27,4 +27,4 @@ A demo da aplicaçãopode ser acessada [aqui](https://nifty-attic.glitch.me/).
 
 ## Limitações
 
-Tamanho do intervalo das datas é limitado pela api consumida.
+Tamanho do intervalo das datas é limitado pela API consumida.
