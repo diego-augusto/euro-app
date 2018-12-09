@@ -25,7 +25,9 @@ npm start
 
 ## Demo
 
-A demo da aplicaçãopode ser acessada [aqui](https://euro-app.glitch.me/).
+A demo da aplicação pode ser acessada [aqui](https://euro-app.glitch.me/).
+
+Obs.:Por ser um serviço gratuito pode sofrer algum delay inicialmente.
 
 ## Limitações
 
