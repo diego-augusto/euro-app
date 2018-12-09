@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Euro from "../api/Euro";
+import Euro from "../api/EuroClient";
 import SearchBar from './SearchBar'
 import EuroChart from './EuroChart'
 import Current from './Current'
