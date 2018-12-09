@@ -16,7 +16,7 @@ class Current extends Component {
         var today = moment(new Date()).format('DD-MM-YYYY');
         Euro.get('/euros/' + today)
             .then(res => {
-                this.setState({ today: res.data.value.toString() })
+                this.setState({ today: res.data.data.value.toString() })
             })
     }
 

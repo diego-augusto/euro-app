@@ -49,8 +49,8 @@ class App extends Component {
 
     onSearchSubmit = async dates => {
         const response = await Euro.get('/euros', { params: dates })
-        const mdates = response.data.map(data => data.date)
-        const values = response.data.map(data => data.value)
+        const mdates = response.data.data.map(data => data.date)
+        const values = response.data.data.map(data => data.value)
         data.labels = mdates
         data.datasets[0].data = values
         this.setState({ data: data })
@@ -61,8 +61,8 @@ class App extends Component {
         const endDate = today.format('DD-MM-YYYY');
         const startDate = today.subtract(30, 'day').format('DD-MM-YYYY');
         const response = await Euro.get('/euros', { params: { startDate: startDate, endDate: endDate } })
-        const dates = response.data.map(data => data.date)
-        const values = response.data.map(data => data.value)
+        const dates = response.data.data.map(data => data.date)
+        const values = response.data.data.map(data => data.value)
         data.labels = dates
         data.datasets[0].data = values
         this.setState({ data: data })
@@ -77,7 +77,9 @@ class App extends Component {
                     <SearchBar onSubmit={this.onSearchSubmit} />
                     <EuroChart data={this.state.data} options={this.state.options} />
                 </div>
-                <p className="ui block header" style={{textAlign:'center'}}>&copy; {new Date().getFullYear()} Diego Augusto</p>
+                <br/>
+                <br/>
+                <p style={{textAlign:'center'}}>&copy; {new Date().getFullYear()} Diego Augusto</p>
             </div>
         )
     }
