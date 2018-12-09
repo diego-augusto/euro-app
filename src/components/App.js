@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import euro from "../api/euro";
+import Euro from "../api/Euro";
 import SearchBar from './SearchBar'
 import EuroChart from './EuroChart'
 import Current from './Current'
@@ -48,7 +48,7 @@ class App extends Component {
     }
 
     onSearchSubmit = async dates => {
-        const response = await euro.get('/euros', { params: dates })
+        const response = await Euro.get('/euros', { params: dates })
         const mdates = response.data.map(data => data.date)
         const values = response.data.map(data => data.value)
         data.labels = mdates
@@ -60,7 +60,7 @@ class App extends Component {
         const today = moment(new Date())
         const endDate = today.format('DD-MM-YYYY');
         const startDate = today.subtract(30, 'day').format('DD-MM-YYYY');
-        const response = await euro.get('/euros', { params: { startDate: startDate, endDate: endDate } })
+        const response = await Euro.get('/euros', { params: { startDate: startDate, endDate: endDate } })
         const dates = response.data.map(data => data.date)
         const values = response.data.map(data => data.value)
         data.labels = dates
@@ -70,10 +70,14 @@ class App extends Component {
 
     render() {
         return (
-            <div className="ui container" style={{ marginTop: '10px' }}>
-                <Current />
-                <SearchBar onSubmit={this.onSearchSubmit} />
-                <EuroChart data={this.state.data} options={this.state.options} />
+            <div>
+                <h1 className="ui block header" style={{textAlign:'center'}}>Cotação do Euro</h1>
+                <div className="ui container" style={{ marginTop: '10px' }}>
+                    <Current />
+                    <SearchBar onSubmit={this.onSearchSubmit} />
+                    <EuroChart data={this.state.data} options={this.state.options} />
+                </div>
+                <p className="ui block header" style={{textAlign:'center'}}>&copy; {new Date().getFullYear()} Diego Augusto</p>
             </div>
         )
     }

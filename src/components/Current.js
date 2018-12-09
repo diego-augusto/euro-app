@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import euro from "../api/euro";
+import Euro from "../api/Euro";
 import moment from 'moment';
 
 class Current extends Component {
@@ -14,7 +14,7 @@ class Current extends Component {
 
     componentDidMount() {
         var today = moment(new Date()).format('DD-MM-YYYY');
-        euro.get('/euros/' + today)
+        Euro.get('/euros/' + today)
             .then(res => {
                 this.setState({ today: res.data.value.toString() })
             })
