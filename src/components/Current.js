@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import euro from "../api/euro";
 import moment from 'moment';
 
 class Current extends Component {
@@ -14,7 +14,7 @@ class Current extends Component {
 
     componentDidMount() {
         var today = moment(new Date()).format('DD-MM-YYYY');
-        axios.get('http://localhost:1337/euros/' + today)
+        euro.get('/euros/' + today)
             .then(res => {
                 this.setState({ today: res.data.value.toString() })
             })
